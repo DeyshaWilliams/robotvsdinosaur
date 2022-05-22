@@ -1,0 +1,9 @@
+from Battlefield import battlefield
+
+import random
+
+choices = ['desert', 'island', 'city', 'field', 'volcanoes']
+
+bf = battlefield(random.choice)
+
+bf.run_game()
