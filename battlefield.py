@@ -2,6 +2,8 @@ from Fleet import fleet
 
 from Herd import herd
 
+import random
+
 class battlefield:
     def __init__(self, name):
         self.name = name
@@ -11,10 +13,16 @@ class battlefield:
 
     def run_game(self):
         print('Game: Start!')
-    
-    #is_dead = False
+        self.greeting()
+        self.game()
+        
+    def game(self):
+        is_dead = False
 
-    #while is_dead == False:
+        while is_dead == False:
+            self.charge()
+            if is_dead == True:
+                self.ending()
 
     def greeting(self):
         print(
@@ -28,4 +36,5 @@ class battlefield:
     def ending(self):
         print('Thank you and good night!')
  
-    
+    def charge():
+        ''
