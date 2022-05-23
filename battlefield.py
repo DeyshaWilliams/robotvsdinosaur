@@ -11,8 +11,21 @@ class battlefield:
 
     def run_game(self):
         print('Game: Start!')
-        is_dead = False
+    
+    #is_dead = False
 
-        while is_dead == False:
-            ''
-        pass
+    #while is_dead == False:
+
+    def greeting(self):
+        print(
+            '''
+***********
+
+***********            
+            '''
+        )
+
+    def ending(self):
+        print('Thank you and good night!')
+ 
+    
