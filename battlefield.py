@@ -8,8 +8,11 @@ class battlefield:
     def __init__(self, name):
         self.name = name
         self.fleet = fleet()
+        ### This is not working ˇˇˇ
+        # self.op_prime = fleet.optimus_prime
         self.herd = herd()
         pass
+
 
     def run_game(self):
         print('Game: Start!')
@@ -18,13 +21,10 @@ class battlefield:
         
     def game(self):
         is_dead = False
+        fleet_health = fleet.check_fleet_health(self)
+        herd_health = herd.check_herd_health(self)
 
         while is_dead == False:
-            fleet()
-            herd()
-            self.charge()
-            fleet_health = fleet.check_fleet_health(self)
-            herd_health = herd.check_herd_health(self)
             if fleet_health == 0 or herd_health == 0:
                 is_dead = True
             if fleet_health == 0:
@@ -42,11 +42,9 @@ class battlefield:
 ***********            
             '''
         )
+    
+    
 
     def ending(self):
         print('Thank you and good night!')
  
-    def charge(self):
-        
-        pass
-

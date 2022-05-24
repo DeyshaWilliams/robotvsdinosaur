@@ -2,6 +2,8 @@ from Dinosaur import dinosaur
 
 from Attack import attack
 
+import random
+
 class herd:
     def __init__(self):
         self.name = 'The Herd Before Time'
@@ -13,11 +15,12 @@ class herd:
 
         self.bite = attack('Bite', 15)
         self.tail_sweep = attack('Tail Sweep', 9)
+        self.attacks = [self.bite, self.tail_sweep]
         pass
 
     def check_herd_health(self):
-        herd_health = 0
-        for dino in self.dinos:
-            herd_health += dino.health
-        pass
-    
+        herd_health = self.t_rex.health + self.stegosaurus.health + self.spinosaurus.health
+        return herd_health
+
+    def attack():
+        random.choice
