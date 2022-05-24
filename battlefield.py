@@ -20,9 +20,19 @@ class battlefield:
         is_dead = False
 
         while is_dead == False:
+            fleet()
+            herd()
             self.charge()
+            fleet_health = fleet.check_fleet_health(self)
+            herd_health = herd.check_herd_health(self)
+            if fleet_health == 0 or herd_health == 0:
+                is_dead = True
+            if fleet_health == 0:
+                print(f'{fleet.name} defeated {herd.name}!')
+            elif herd_health == 0:
+                print(f'{herd.name} defeated {fleet.name}')
             if is_dead == True:
-                self.ending()
+                self.ending()    
 
     def greeting(self):
         print(
@@ -36,5 +46,7 @@ class battlefield:
     def ending(self):
         print('Thank you and good night!')
  
-    def charge():
-        ''
+    def charge(self):
+        
+        pass
+
