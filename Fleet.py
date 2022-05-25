@@ -1,4 +1,4 @@
-from random import random
+
 from Robot import robot
 
 from Weapon import weapon
@@ -27,7 +27,6 @@ class fleet:
         self.mjolnir = weapon('Mjolnir', 15)
         self.solar_beam = weapon('Solar Beam', 20)
         self.vis_weapons = [self.mjolnir, self.solar_beam]
-        pass
 
     def op_attack(self):
         att = random.choice(self.op_weapons)

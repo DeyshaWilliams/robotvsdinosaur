@@ -16,7 +16,6 @@ class herd:
         self.bite = attack('Bite', 18)
         self.tail_sweep = attack('Tail Sweep', 10)
         self.attacks = [self.bite, self.tail_sweep]
-        pass
 
     def attack(self):
         att = random.choice(self.attacks)

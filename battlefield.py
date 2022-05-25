@@ -12,7 +12,6 @@ class battlefield:
         self.herd = herd()
         self.act_fleet_health = 0
         self.act_herd_health = 0
-        pass
 
 
     def run_game(self):
@@ -32,7 +31,7 @@ class battlefield:
             if self.act_fleet_health <= 0:
                 print(f'{self.herd.name} defeated {self.fleet.name}!')
             elif self.act_herd_health <= 0:
-                print(f'{self.fleet.name} defeated {self.herd.name}')
+                print(f'{self.fleet.name} defeated {self.herd.name}!')
             if is_dead == True:
                 self.ending()    
 
@@ -40,7 +39,12 @@ class battlefield:
         print(
             f'''
 ***********
-
+Welcome to the world's most interesting game! The battlefield is set to {self.name}.
+In the left corner, we have {self.fleet.name}! Complete with {self.fleet.optimus_prime.name},
+{self.fleet.terminator.name}. and our very own {self.fleet.vision.name}!
+And in the right corner, we have {self.herd.name}! Complete with a {self.herd.t_rex.name},
+a {self.herd.spinosaurus.name}, and a {self.herd.stegosaurus.name}!
+The stage is set! Let the games BEGIN!
 ***********            
             '''
         )
@@ -49,7 +53,7 @@ class battlefield:
         chrg_dino = random.choice(self.herd.dinos)
         hurt_robot = random.choice(self.fleet.robots)
         att = self.herd.attack()
-        print(f'{chrg_dino.name} dealt {att.dmg} damage to {hurt_robot.name}')
+        print(f'{chrg_dino.name} used {att.name} and dealt {att.dmg} damage to {hurt_robot.name}')
         return att.dmg
 
     def check_fleet_health(self):
@@ -82,19 +86,19 @@ class battlefield:
     def op_dealt(self):
         hurt_dino = random.choice(self.herd.dinos)
         att = self.fleet.op_attack()
-        print(f'{self.fleet.optimus_prime.name} used {att.name} and dealt {att.dmg} to {hurt_dino.name}')
+        print(f'{self.fleet.optimus_prime.name} used {att.name} and dealt {att.dmg} to {hurt_dino.name}!')
         return att.dmg
 
     def term_dealt(self):
         hurt_dino = random.choice(self.herd.dinos)
         att = self.fleet.term_attack()
-        print(f'{self.fleet.terminator.name} used {att.name} and dealt {att.dmg} to {hurt_dino.name}')
+        print(f'{self.fleet.terminator.name} used {att.name} and dealt {att.dmg} to {hurt_dino.name}!')
         return att.dmg
     
     def vis_dealt(self):
         hurt_dino = random.choice(self.herd.dinos)
         att = self.fleet.vis_attack()
-        print(f'{self.fleet.vision.name} used {att.name} and dealt {att.dmg} to {hurt_dino.name}')
+        print(f'{self.fleet.vision.name} used {att.name} and dealt {att.dmg} to {hurt_dino.name}!')
         return att.dmg
 
     def check_herd_health(self):

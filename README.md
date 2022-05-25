@@ -1,1 +1,3 @@
 # robotvsdinosaur
+
+This "game" is basically just a play of what would happen if a bunch of famous robots came upon a herd of angry dinosaurs. This took a lot of brain power, so I am very proud of myself for doing this much. When I have more time on my hands, I will go back and add more fun elements to this. It's a very simple program that takes a bunch of classes and throws them together until only one is left standing.
