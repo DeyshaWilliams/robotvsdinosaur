@@ -1,3 +1,4 @@
+
 from Fleet import fleet
 
 from Herd import herd
@@ -10,6 +11,7 @@ class battlefield:
         self.fleet = fleet()
         self.herd = herd()
         self.act_fleet_health = 0
+        self.act_herd_health = 0
         pass
 
 
@@ -20,17 +22,17 @@ class battlefield:
         
     def game(self):
         is_dead = False
-        herd_health = self.herd.herd_health()
 
         while is_dead == False:
             self.act_fleet_health = self.check_fleet_health()
+            self.act_herd_health = self.check_herd_health()
 
-            if self.act_fleet_health <= 0 or herd_health <= 0:
+            if self.act_fleet_health <= 0 or self.act_herd_health <= 0:
                 is_dead = True
             if self.act_fleet_health <= 0:
-                print(f'{self.fleet.name} defeated {self.herd.name}!')
-            elif herd_health <= 0:
-                print(f'{self.herd.name} defeated {self.fleet.name}')
+                print(f'{self.herd.name} defeated {self.fleet.name}!')
+            elif self.act_herd_health <= 0:
+                print(f'{self.fleet.name} defeated {self.herd.name}')
             if is_dead == True:
                 self.ending()    
 
@@ -64,6 +66,51 @@ class battlefield:
             for robo in self.fleet.robots:
                 fleet_health += int(robo.health)
         return fleet_health
+
+    def fleet_dealt_dmg(self):
+        chrg_rob = random.choice(self.fleet.robots)
+        if chrg_rob == self.fleet.optimus_prime:
+            att = self.op_dealt()
+            return att
+        elif chrg_rob == self.fleet.terminator:
+            att = self.term_dealt()
+            return att
+        else:
+            att = self.vis_dealt()
+            return att
+
+    def op_dealt(self):
+        hurt_dino = random.choice(self.herd.dinos)
+        att = self.fleet.op_attack()
+        print(f'{self.fleet.optimus_prime.name} used {att.name} and dealt {att.dmg} to {hurt_dino.name}')
+        return att.dmg
+
+    def term_dealt(self):
+        hurt_dino = random.choice(self.herd.dinos)
+        att = self.fleet.term_attack()
+        print(f'{self.fleet.terminator.name} used {att.name} and dealt {att.dmg} to {hurt_dino.name}')
+        return att.dmg
+    
+    def vis_dealt(self):
+        hurt_dino = random.choice(self.herd.dinos)
+        att = self.fleet.vis_attack()
+        print(f'{self.fleet.vision.name} used {att.name} and dealt {att.dmg} to {hurt_dino.name}')
+        return att.dmg
+
+    def check_herd_health(self):
+        herd_health = self.herd_health(self.act_herd_health)
+        dmg_done = self.fleet_dealt_dmg()
+        herd_health -= dmg_done
+        return herd_health
+    
+    def herd_health(self, health_passed):
+        herd_health = int(health_passed)
+        if herd_health > 0:
+            return herd_health
+        else:    
+            for dino in self.herd.dinos:
+                herd_health += int(dino.health)
+        return herd_health
  
     def ending(self):
         print('Thank you and good night!')
