@@ -18,9 +18,14 @@ class herd:
         self.attacks = [self.bite, self.tail_sweep]
         pass
 
-    def check_herd_health(self):
-        herd_health = self.t_rex.health + self.stegosaurus.health + self.spinosaurus.health
+    
+
+    def herd_health(self):
+        herd_health = 0
+        for dino in self.dinos:
+            herd_health += int(dino.health)
         return herd_health
 
-    def attack():
-        random.choice
+    def attack(self):
+        att = random.choice(self.attacks)
+        return att

@@ -9,6 +9,7 @@ class fleet:
         self.optimus_prime = robot('Optimus Prime', 200)
         self.terminator = robot('The Terminator', 200)
         self.vision = robot('Vision', 180)
+        self.robots = [self.optimus_prime, self.terminator, self.vision]
         
         self.ion_blaster = weapon('Ion Blaster', 20)
         self.energon_axe = weapon('Energon Axe', 15)
@@ -22,9 +23,7 @@ class fleet:
         self.solar_beam = weapon('Solar Beam', 20)
         pass
 
-    def check_fleet_health(self):
-        fleet_health = int(self.optimus_prime.health) + int(self.terminator.health) + int(self.vision.health)
-        return fleet_health
+    
 
     def attack(self):
         ''
